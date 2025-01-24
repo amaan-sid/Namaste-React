@@ -21,15 +21,15 @@ it("Should render the Body component with a search ", async () => {
       </BrowserRouter>
   ));
   
-    // const cardss = await screen.findAllByTestId("resCard");
-    // expect(cardss.length).toBeGreaterThan(0);
+    const cardss = await screen.findAllByTestId("resCard");
+    expect(cardss.length).toBeGreaterThan(0);
 
-    // const searchBtn =  screen.getAllByRole("button", { name: "Search" })
-    // const searchInput = screen.getByRole('textbox')
+    const searchBtn =  screen.getByTestId("searchButton")
+    const searchInput = screen.getByTestId("searchInput")
 
-    // fireEvent.change(searchInput, { target : { value : "Burger"}});
-    // fireEvent.click(searchBtn)
-    // const cards = screen.getAllByRole('group')
-    // expect(searchInput).toBeInTheDocument();
+    fireEvent.change(searchInput, { target : { value : "Burger"}});
+    fireEvent.click(searchBtn)
+    const cards = screen.getAllByRole('group')
+    expect(searchInput).toBeInTheDocument();
   
 });

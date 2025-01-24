@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
 
   let resinfo = useRestaurantMenu(resid);
 
-  if ( resinfo.length == 0 ) return <Shimmer/> ;
+  if (resinfo.length == 0) return <Shimmer />;
 
   const {
     name,
@@ -24,9 +24,9 @@ const RestaurantMenu = () => {
     totalRatingsString,
     sla
   } = resinfo?.data?.cards[2]?.card?.card?.info;
-  
-  const itemCards  = resinfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card; 
-  
+
+  const itemCards = resinfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
   // console.log(itemCards)
   //  console.log({itemCards});       
 
@@ -39,12 +39,12 @@ const RestaurantMenu = () => {
         );
       }
     );
-  
-    // console.log(Categories);
- 
-  
 
-  return  (
+  // console.log(Categories);
+
+
+
+  return (
     <div className="flex flex-col  items-center w-auto">
       <h1 className="font-bold  text-3xl mb-5"> {name} </h1>
 

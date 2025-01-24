@@ -54,8 +54,7 @@ const Body = () => {
     <div className="">
       <div className="flex p-3 items-center ">
         <button
-          className="border-solid border-2 border-black rounded-md p-1 text-base font-medium mr-10
-                    hover:bg-gray-200   "
+          className="border-solid border-2 border-black rounded-md p-1 text-base font-medium mr-10 hover:bg-gray-200"
           onClick={() => {
             const filteredlist = listOfRestaurants.filter(
               (restau) => restau?.info?.avgRating > 4.5
@@ -66,7 +65,8 @@ const Body = () => {
           Top Rated Restaurent
         </button>
         <input
-        data-testid = 'searchInput'
+          data-testid='searchInput'
+          role="textbox"
           className="border-solid border-[1px] border-black rounded-md bg-slate-200"
           type="text"
           value={searchText}
@@ -74,9 +74,9 @@ const Body = () => {
             setsearchText(e.target.value);
           }}
         />
-        <button 
-          className="mx-4 border-solid border-2 border-black rounded-md p-1 text-base font-medium ml-1
-                    hover:bg-gray-200   "
+        <button
+          className="mx-4 border-solid border-2 border-black rounded-md p-1 text-base font-medium ml-1 hover:bg-gray-200"
+          data-testid='searchButton'
           onClick={() => {
             const filteredlist = listOfRestaurants.filter((res) => {
               const words = res?.info?.name?.toLowerCase().split(" ");
@@ -97,9 +97,9 @@ const Body = () => {
         />
       </div>
       <div
-      role="group"
-      
-      className="flex flex-wrap justify-center items-center py-10 gap-x-8 gap-y-2">
+        role="group"
+        data-testid="resCard"
+        className="flex flex-wrap justify-center items-center py-10 gap-x-8 gap-y-2">
         {filteredListOfRestaurants?.length > 0 ? (
           filteredListOfRestaurants.map((restaurant) => (
             <Link
@@ -107,11 +107,11 @@ const Body = () => {
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-                {restaurant.info.avgRating > 4.4  ? (   
-                  <TopRated resData={restaurant} /> ) : ( 
-              <RestaurantCard resData={restaurant} /> )
-                  }
-              
+              {restaurant.info.avgRating > 4.4 ? (
+                <TopRated resData={restaurant} />) : (
+                <RestaurantCard resData={restaurant} />)
+              }
+
             </Link>
           ))
         ) : (
